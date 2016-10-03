@@ -50,3 +50,5 @@ t_min = t_min / 256;
 bw_min = im2bw(image, t_min);
 figure
 imshow(bw_min)
+
+diff = abs(t_otsu - t_min)
