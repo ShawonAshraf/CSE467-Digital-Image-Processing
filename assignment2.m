@@ -35,7 +35,18 @@ for i = 1 : n
     v(i) = (low * v1) + (high * v2);
 end
 
-t_min = min(v(:));
+minv = min(v(:));
+
+% find minimum index
+
+for i = 1:n
+    if v(i) == minv
+        t_min = i;
+    end
+end
+
+t_min = t_min / 256;
+
 bw_min = im2bw(image, t_min);
 figure
 imshow(bw_min)
