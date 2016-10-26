@@ -1,13 +1,8 @@
 image = imread('rice.png');
 %show image using otsu's method
 t_otsu = graythresh(image);
-figure
-bw_otsu = im2bw(image, t_otsu);
-imshow(bw_otsu)
-
 
 %now minimized algorithm
-
 n = 256;
 c = imhist(image, n);
 sum_c = sum(c);
@@ -30,7 +25,6 @@ for i = 1 : n
     v1 = t1 / low;
     v2 = t2 / high;
     
-    
     %v(i) = low * high * ((mean_low - mean_high)^2);
     v(i) = (low * v1) + (high * v2);
 end
@@ -41,14 +35,15 @@ minv = min(v(:));
 
 for i = 1:n
     if v(i) == minv
-        t_min = i;
+        t_min_index = i;
     end
 end
 
-t_min = t_min / 256;
+t_min = t_min_index / n;
 
 bw_min = im2bw(image, t_min);
-figure
+% figure
 imshow(bw_min)
 
 diff = abs(t_otsu - t_min)
+error = diff / t_otsu * 100
