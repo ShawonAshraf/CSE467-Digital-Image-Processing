@@ -8,6 +8,9 @@ rgav = avg_filter(I);
 h_avg = hsi_avg(H);
 hm = hsi_median(H);
 
+%hm = hsv2rgb(hm);
+%h_avg = hsv2rgb(h_avg);
+
 
 figure
 subplot(121);
