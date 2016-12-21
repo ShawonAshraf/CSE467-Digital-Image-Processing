@@ -1,6 +1,6 @@
-i = imread('cameraman.tif');
-noisy = imnoise(i, 'speckle');
-blurred = imgaussfilt(noisy, 4.5);
+i = imread('mandi.tif');
+noisy = imnoise(i, 'salt & pepper');
+blurred = imgaussfilt(noisy, 6);
 
 % figure
 % imshow(blurred)
@@ -12,4 +12,4 @@ blurred = imgaussfilt(noisy, 4.5);
 
 c = edge(blurred, 'canny');
 
-showImage(c, 'Blurred, edge, sigma = 4.5')
+showImage(c, 'Blurred, edge, sigma = 3.5')
