@@ -1,6 +1,6 @@
-i = imread('mandi.tif');
-noisy = imnoise(i, 'salt & pepper');
-blurred = imgaussfilt(noisy, 6);
+i = imread('cameraman.tif');
+noisy = imnoise(i, 'poisson');
+blurred = imgaussfilt(noisy, 2);
 
 % figure
 % imshow(blurred)
